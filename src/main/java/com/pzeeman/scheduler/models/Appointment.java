@@ -1,5 +1,6 @@
 package com.pzeeman.scheduler.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,9 +22,15 @@ public class Appointment {
     @GeneratedValue
     private Long id;
     private Long patientId;
+    @JsonFormat
+            (shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm", timezone = "GMT-4")
     private Date startTime;
-    private Long lengthInMinutes;
 
+    @JsonFormat
+            (shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm", timezone = "GMT-4")
     private Date expectedEndTime;
+    @JsonFormat
+            (shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm", timezone = "GMT-4")
     private Date actualEndTime;
+
 }

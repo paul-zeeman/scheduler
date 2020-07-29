@@ -6,10 +6,7 @@ import com.pzeeman.scheduler.repositories.AppointmentRepository;
 import com.pzeeman.scheduler.repositories.PatientRepository;
 import com.pzeeman.scheduler.services.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -45,6 +42,12 @@ public class AppointmentController {
         catch (ParseException pe) {
 
         }
+    }
 
+    @PatchMapping("/appointment")
+    public void finishAppointment(@RequestParam Long appointmentId,
+                                  @RequestParam String endTime) {
+
+        appointmentService.setAppointmentEndTime(appointmentId, endTime);
     }
 }
