@@ -7,6 +7,7 @@ A scheduling system with notification for changes
     * Therefore, the date is set with System.currentTimeMillis() - making it susceptible to the time of the host platform.
 - The code in AppointmentService to create a date for the appointment is duplicated in two spots and could be refactored into a reusable method.
 - The code is written in such as way that the appointments are considered to be in chronological order, even when ordered by id
+- Needs unit tests for functionality and coverage
 
 All appointments are expected to be 30 minutes long.  This is not customizable
 ### Example Endpoints 
